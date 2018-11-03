@@ -65,3 +65,16 @@
     border-left: #000 .5vw solid;
     box-sizing: border-box;
 }
+
+#inner-circle {
+    position: absolute;
+    height: 25vw;
+    width: 25vw;
+    border-radius: 50%;
+    background: rgb(226, 226, 226);
+    top: 50%;
+    left: 50%;
+    margin: -12.5vw 0px 0px -12.5vw;
+    border: #000 1vw solid;
+    box-sizing: border-box;
+}
