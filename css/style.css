@@ -87,3 +87,24 @@
     font-size: 2.5vw;
     /* border: 1px #fff solid; */
 }
+
+#controls {
+    position: absolute;
+    width: 100%;
+    margin-top: 30%;
+    padding: 4px;
+    /* border: 1px #fff solid; */
+}
+
+.input-container {
+    margin-left: 10%;
+    font-size: 1.5vw;
+    /* border: 1px #fff solid; */
+}
+
+.button-container {
+    margin-top: 5%;
+    text-align: center;
+    font-size: 1.5vw;
+    /* border: 1px #fff solid; */
+}

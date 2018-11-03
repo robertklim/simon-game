@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Material icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     <title>Simon Game</title>
 </head>
@@ -15,8 +20,38 @@
         <div id="bottomright"></div>
         <div id="inner-circle">
             <div id="title" class="font-effect-emboss">Simon Game</div>
+            <div id="controls">
+                <div class="row">
+                    <div class="col s12 m6">
+                        <div class="input-container">
+                            <label>
+                                <input type="checkbox" id="on" />
+                                <span>On</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col s12 m6">
+                        <div class="input-container">
+                            <label>
+                                <input type="checkbox" id="strict" />
+                                <span>Strict</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col s12 m12">
+                        <div class="button-container">
+                            <button class="btn waves-effect waves-light" id="start">Start
+                                <i class="material-icons left">play_arrow</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Custom JavaScript -->
     <script src="js/main.js"></script>
 </body>
 </html>
