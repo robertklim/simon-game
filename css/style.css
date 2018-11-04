@@ -91,7 +91,7 @@
 #controls {
     position: absolute;
     width: 100%;
-    margin-top: 30%;
+    margin-top: 20%;
     padding: 4px;
     /* border: 1px #fff solid; */
 }
@@ -107,4 +107,28 @@
     text-align: center;
     font-size: 1.5vw;
     /* border: 1px #fff solid; */
+}
+
+#round {
+    position: absolute;
+    width: 100%;
+    margin-top: 50%;
+    padding: 4px;
+    text-align: center;
+    /* border: 1px #fff solid; */
+}
+
+#round-screen {
+    background: #222;
+    height: 5vh;
+    width: 7vw;
+    margin: 0 auto;
+    /* border: 1px #fff solid; */
+}
+
+#round-text {
+    width: 100%;
+    color: greenyellow;
+    font-size: 3vh;
+    text-align: center;
 }
