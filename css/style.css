@@ -1,3 +1,8 @@
+@font-face{
+    font-family:'digital-clock-font';
+    src: url('../assets/fonts/digital-7.regular.ttf');
+}
+
 #outer-circle {
     background: rgb(0, 132, 255);
     border-radius: 50%;
@@ -129,6 +134,7 @@
 #round-text {
     width: 100%;
     color: greenyellow;
+    font-family:'digital-clock-font';
     font-size: 3vh;
     text-align: center;
 }
