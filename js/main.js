@@ -129,13 +129,6 @@ function clearColor() {
     bottomRight.style.backgroundColor = 'darkblue';
 }
 
-function flashColor() {
-    topLeft.style.backgroundColor = 'lightgreen';
-    topRight.style.backgroundColor = 'red';
-    bottomLeft.style.backgroundColor = 'yellow';
-    bottomRight.style.backgroundColor = 'lightskyblue';
-}
-
 // Player turn event listeners
 
 topLeft.addEventListener('click', (event) => {
@@ -191,5 +184,41 @@ bottomRight.addEventListener('click', (event) => {
 });
 
 function check() {
-    console.log('check');
+    if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length - 1]) {
+        good = false;
+    }
+    if (playerOrder.length == 3 && good) {
+        winGame();
+    }
+    if (good == false) {
+        roundCounter.innerHTML = 'NO!';
+        setTimeout(() => {
+            roundCounter.innerHTML = turn;
+            clearColor();
+            if (strict) {
+                play();
+            } else {
+                compTurn = true;
+                flash = 0;
+                playerOrder = [];
+                good = true;
+                intervalId = setInterval(gameTurn, 1000);
+            }
+        }, 1000);
+        audioOn = false;
+    }
+    if (turn == playerOrder.length && good && !win) {
+        turn++;
+        playerOrder = [];
+        compTurn = true;
+        flash = 0;
+        roundCounter.innerHTML = turn;
+        intervalId = setInterval(gameTurn, 1000);
+    }
+}
+
+function winGame() {
+    roundCounter.innerHTML = 'You WON!';
+    on = false;
+    win = true;
 }
