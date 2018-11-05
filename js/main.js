@@ -129,6 +129,13 @@ function clearColor() {
     bottomRight.style.backgroundColor = 'darkblue';
 }
 
+function flashColor() {
+    topLeft.style.backgroundColor = 'lightgreen';
+    topRight.style.backgroundColor = 'red';
+    bottomLeft.style.backgroundColor = 'yellow';
+    bottomRight.style.backgroundColor = 'lightskyblue';
+}
+
 // Player turn event listeners
 
 topLeft.addEventListener('click', (event) => {
@@ -191,6 +198,7 @@ function check() {
         winGame();
     }
     if (good == false) {
+        flashColor();
         roundCounter.innerHTML = 'NO!';
         setTimeout(() => {
             roundCounter.innerHTML = turn;
@@ -218,6 +226,7 @@ function check() {
 }
 
 function winGame() {
+    flashColor();
     roundCounter.innerHTML = 'You WON!';
     on = false;
     win = true;
