@@ -34,6 +34,7 @@ onButton.addEventListener('change', (event) => {
         roundCounter.innerHTML = '0';
     } else {
         on = false;
+        playerTurn = false;
         roundCounter.innerHTML = '';
     }
 });
@@ -139,7 +140,7 @@ function flashColor() {
 // Player turn event listeners
 
 topLeft.addEventListener('click', (event) => {
-    if (playerTurn) {
+    if (playerTurn && on) {
         playerOrder.push(1);
         check();
         flashTopLeft();
@@ -152,7 +153,7 @@ topLeft.addEventListener('click', (event) => {
 });
 
 topRight.addEventListener('click', (event) => {
-    if (playerTurn) {
+    if (playerTurn && on) {
         playerOrder.push(2);
         check();
         flashTopRight();
@@ -165,7 +166,7 @@ topRight.addEventListener('click', (event) => {
 });
 
 bottomLeft.addEventListener('click', (event) => {
-    if (playerTurn) {
+    if (playerTurn && on) {
         playerOrder.push(3);
         check();
         flashBottomLeft();
@@ -178,7 +179,7 @@ bottomLeft.addEventListener('click', (event) => {
 });
 
 bottomRight.addEventListener('click', (event) => {
-    if (playerTurn) {
+    if (playerTurn && on) {
         playerOrder.push(4);
         check();
         flashBottomRight();
@@ -207,6 +208,7 @@ function check() {
                 play();
             } else {
                 compTurn = true;
+                playerTurn = false;
                 flash = 0;
                 playerOrder = [];
                 good = true;
@@ -219,6 +221,7 @@ function check() {
         turn++;
         playerOrder = [];
         compTurn = true;
+        playerTurn = false;
         flash = 0;
         roundCounter.innerHTML = turn;
         intervalId = setInterval(gameTurn, 1000);
