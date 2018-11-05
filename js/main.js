@@ -4,6 +4,7 @@ let flash;
 let turn;
 let good;
 let compTurn = false; // Computer flashing lights turn
+let playerTurn = false; // Player try to match order
 let intervalId;
 let audioOn = true;
 let strict = false;
@@ -53,25 +54,24 @@ function play() {
     turn = 1;
     roundCounter.innerHTML = 1;
     good = true;
+    playerTurn = false;
+    compTurn = true;
+
     for (let i = 0; i < 20; i++) {
         order.push(Math.floor(Math.random() * 4) + 1);
     }
-
-    // console.log(order);
-
-    compTurn = true;
 
     intervalId = setInterval(gameTurn, 1000);
 }
 
 function gameTurn() {
-    on = false; // To prevent player from clicking when computer is flashing
+    playerTurn = false; // To prevent player from clicking when computer is flashing
     
     if (flash === turn) {
         clearInterval(intervalId);
         compTurn = false;
+        playerTurn = true;
         clearColor();
-        on = true;
     }
 
     if (compTurn) {
@@ -127,4 +127,69 @@ function clearColor() {
     topRight.style.backgroundColor = 'darkred';
     bottomLeft.style.backgroundColor = 'goldenrod';
     bottomRight.style.backgroundColor = 'darkblue';
+}
+
+function flashColor() {
+    topLeft.style.backgroundColor = 'lightgreen';
+    topRight.style.backgroundColor = 'red';
+    bottomLeft.style.backgroundColor = 'yellow';
+    bottomRight.style.backgroundColor = 'lightskyblue';
+}
+
+// Player turn event listeners
+
+topLeft.addEventListener('click', (event) => {
+    if (playerTurn) {
+        playerOrder.push(1);
+        check();
+        flashTopLeft();
+        if (!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+});
+
+topRight.addEventListener('click', (event) => {
+    if (playerTurn) {
+        playerOrder.push(2);
+        check();
+        flashTopRight();
+        if (!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+});
+
+bottomLeft.addEventListener('click', (event) => {
+    if (playerTurn) {
+        playerOrder.push(3);
+        check();
+        flashBottomLeft();
+        if (!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+});
+
+bottomRight.addEventListener('click', (event) => {
+    if (playerTurn) {
+        playerOrder.push(4);
+        check();
+        flashBottomRight();
+        if (!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+});
+
+function check() {
+    console.log('check');
 }
